@@ -26,3 +26,10 @@
 *.exe
 *.out
 *.app
+
+# biicode
+bii/build
+bii/cmake
+bii/deps
+bin
+CMakeLists.txt
