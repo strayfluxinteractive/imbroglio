@@ -10,9 +10,11 @@
 #include <string>
 #include "latinga/sdl2/include/sdl.h"
 #include "latinga/sdl2/include/sdl_opengl.h"
-class Window {
+class Window
+{
 public:
 	Window();
+	Window(std::string title, int x, int y, int width, int height, int flags);
 	virtual ~Window();
 	int getPositionX() const;
 	void setPositionX(int positionX);
@@ -22,14 +24,14 @@ public:
 	void setWidth(int width);
 	int getHeight() const;
 	void setHeight(int height);
-
-	void create();
-	const std::string& getTitle() const;
-	void setTitle(const std::string& title);
 	SDL_Window* getWindow();
 	void setWindow(SDL_Window* window);
 	Uint32 getFlags() const;
 	void setFlags(Uint32 flags);
+	const std::string& getTitle() const;
+	void setTitle(const std::string& title);
+
+	void create();
 
 private:
 	std::string _title;
@@ -42,6 +44,5 @@ private:
 	SDL_GLContext _glcontext;
 
 };
-
 
 #endif /* STRAYFLUXINTERACTIVE_IMBROGLIO_CORE_WINDOW_HPP_ */
