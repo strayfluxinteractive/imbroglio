@@ -32,17 +32,15 @@ script:
 - shopt -s dotglob && mv $TRAVIS_BUILD_DIR/* ./
 - if [ "$CXX" == "clang++" ]; then export CXX="clang++" && bii cpp:build; fi
 - if [ "$CXX" == "g++" ];     then export CXX="g++"     && bii cpp:build; fi
-- cd /tmp/biicode_project
+- cd /tmp
 ##################### CHANGE WITH YOUR CUSTOM CHECKS OR TEST EXECUTION ##################
 - ls -la
 #########################################################################################
 after_success:
 - if [[ "$TRAVIS_BRANCH" != "master" ]]; then exit 0 ; fi
 - bii user $USER -p $BII_PASSWORD
-- if [[ -n $TRAVIS_TAG ]]; then bii publish -r --tag STABLE --versiontag $TRAVIS_TAG
-  || echo "Ignored publish output..."; fi
-- if [[ -z $TRAVIS_TAG ]]; then bii publish -r || echo "Ignored publish output...";
-  fi
+- if [[ -n $TRAVIS_TAG ]]; then bii publish -r --tag STABLE --versiontag $TRAVIS_TAG || echo "Ignored publish output..."; fi
+- if [[ -z $TRAVIS_TAG ]]; then bii publish -r || echo "Ignored publish output..."; fi
 # If there are changes, commit them
 - cd /tmp/biicode_project/blocks/$USER/$BLOCK_NAME
 - git config credential.helper "store --file=.git/credentials" 
@@ -57,8 +55,8 @@ env:
   - USER_EMAIL="strayfluxinteractive@gmail.com"
   - USER_NAME="strayfluxinteractive"
   - COMMIT_IGNORE_BUILD="Promoted version.***travis***"
-  - BLOCK_NAME=imbroglio
-  - USER=strayfluxinteractive
+  - BLOCK_NAME="imbroglio"
+  - USER="strayfluxinteractive"
   # BII_PASSWORD
   - secure: "cDkapcAiVO9lPEyFT3zv0CJ+X3t4t9CCVYCAi7nhcvkclthXCC/f/WB2y7508XaW7DgcCxu1GJ7VIUevPGCPKJePqE5zWASfNfYs/FgLTYXmfMT0l7ZKuXWyZIlN98j5vxOi7IU5l8cLNLSgyi4WOwxftV4dB+ILMgIUCHsvSYQ="
   # GH_TOKEN
