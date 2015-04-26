@@ -34,7 +34,7 @@ script:
 - if [ "$CXX" == "g++" ];     then export CXX="g++"     && bii cpp:build; fi
 - cd /tmp/biicode_project
 ##################### CHANGE WITH YOUR CUSTOM CHECKS OR TEST EXECUTION ##################
-- ls ./bin/
+- ls -la
 #########################################################################################
 after_success:
 - if [[ "$TRAVIS_BRANCH" != "master" ]]; then exit 0 ; fi
@@ -54,10 +54,10 @@ after_success:
 - git push
 env:
   global:
-  - USER_EMAIL=strayfluxinteractive
-          - USER_NAME="strayfluxinteractive@gmail.com"
-          - COMMIT_IGNORE_BUILD="Promoted version.***travis***"
-          - BLOCK_NAME=imbroglio
+  - USER_EMAIL="strayfluxinteractive@gmail.com"
+  - USER_NAME="strayfluxinteractive"
+  - COMMIT_IGNORE_BUILD="Promoted version.***travis***"
+  - BLOCK_NAME=imbroglio
   - USER=strayfluxinteractive
   # BII_PASSWORD
   - secure: "cDkapcAiVO9lPEyFT3zv0CJ+X3t4t9CCVYCAi7nhcvkclthXCC/f/WB2y7508XaW7DgcCxu1GJ7VIUevPGCPKJePqE5zWASfNfYs/FgLTYXmfMT0l7ZKuXWyZIlN98j5vxOi7IU5l8cLNLSgyi4WOwxftV4dB+ILMgIUCHsvSYQ="
