@@ -9,3 +9,4 @@ deps: bii/deps
 # instead of blocks/youruser/yourblock
 # the block will be named as your project folder
 auto-root-block: True
+root-block: strayfluxinteractive/imbroglio
